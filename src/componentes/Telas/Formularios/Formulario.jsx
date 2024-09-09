@@ -11,7 +11,6 @@ export default function Formulario(props) {
         event.preventDefault();
         event.stopPropagation();
       }
-  
       setValidated(true);
     };
   
@@ -85,6 +84,10 @@ export default function Formulario(props) {
           Submit
         </Button>
       </Form>
+    )
+  } else if (props.classe==="produto") {
+    return (
+      <h1>bleh</h1>
     )
   }
   
