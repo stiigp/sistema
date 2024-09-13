@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import { Container, FloatingLabel, Row, Col } from 'react-bootstrap';
 
 export default function Formulario(props) {
   const [validated, setValidated] = useState(false);
@@ -87,8 +88,90 @@ export default function Formulario(props) {
     )
   } else if (props.classe==="produto") {
     return (
-      <h1>bleh</h1>
+      <Form>
+        <Form.Group className="mb-3">
+          <Form.Label>Código</Form.Label>
+          <Form.Control type="text" placeholder="Insira o código do produto" />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Preço de custo</Form.Label>
+          <Form.Control type="text" placeholder="Insira o preço de custo" />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Preço de venda</Form.Label>
+          <Form.Control type="text" placeholder="Insira o preço de venda" />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Descrição</Form.Label>
+          <Form.Control type="number" placeholder="Insira a descrição do produto"/>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Qtd. do Estoque</Form.Label>
+          <Form.Control type="text" placeholder="Insira a qtde. em estoque" />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Url da Imagem</Form.Label>
+          <Form.Control type="text" placeholder="Insira a url da imagem do produto" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     )
+  } else if (props.classe === "categoria") {
+    return (
+      <Container>
+        <Form noValidate>
+          <Row>
+            <Col>
+              <Form.Group>
+                <FloatingLabel
+                  label="Código:"
+                  className="mb-3"
+                >
+
+                  <Form.Control
+                    type="text"
+                    placeholder="0"
+                    id="codigo"
+                    name="codigo"
+                    disabled />
+                </FloatingLabel>
+                <Form.Control.Feedback type="invalid">Informe o código da categoria!</Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Form.Group>
+                <FloatingLabel
+                  label="Categoria:"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="Informe a descrição da categoria"
+                    id="descricao"
+                    name="descricao"
+                    required />
+                </FloatingLabel>
+                <Form.Control.Feedback type="invalid">Informe a descrição da categoria!</Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} offset={5}>
+              <Button type="button" variant={"secondary"}>Voltar</Button>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+    );
   }
-  
 }

@@ -10,7 +10,12 @@ export default function TabelaClientes(props) {
                 <Table striped bordered hover>
                     <thead>
                         <th>Código</th>
-                        <th>Descriçao</th>
+                        <th>Nome</th>
+                        <th>Qtde de compras</th>
+                        <th>CPF</th>
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
                     </thead>
                     <tbody>
                         {
@@ -18,13 +23,19 @@ export default function TabelaClientes(props) {
                                 return (
                                     <tr>
                                         <td>{cliente.codigo}</td>
-                                        <td>{cliente.descricao}</td>
+                                        <td>{cliente.nome}</td>
+                                        <td>{cliente.qtdCompras}</td>
+                                        <td>{cliente.cpf}</td>
+                                        <td>{cliente.endereco}</td>
+                                        <td>{cliente.telefone}</td>
+                                        <td>{cliente.email}</td>
                                     </tr>
                                 )
                             })
                         }
                     </tbody>
                 </Table>
+
             </Container>
         </>
     )

@@ -1,14 +1,24 @@
-import Formulario from "./Formularios/Formulario"
-import Cabecalho from "../layouts/Cabecalho"
-import Pagina from "../layouts/Pagina"
+import { useState } from "react";
+import Pagina from "../layouts/Pagina";
+import { Alert } from "react-bootstrap";
+import TabelaClientes from "./Tabelas/TabelaClientes";
+import Formulario from "./Formularios/Formulario";
+import { clientes } from "../../dados/mockClientes"
 
-export default function TelaCadastroFornecedor(props) {
+export default function TelaCadastroCliente(props) {
+  const [exibirTabela, setExibirTabela] = useState(true);
   return (
-    <>
+    <div>
       <Pagina>
-        <Cabecalho titulo="Cadastro de fornecedores"/>
-        <Formulario classe = "cliente"/>
+        <Alert classname="mt-02 mb-02 success text-center" variant="success">
+          <h2>
+            Cadastro de Cliente
+          </h2>
+        </Alert>
+        {
+          exibirTabela ? <TabelaClientes listaDeClientes={clientes} setExibirTabela={setExibirTabela} /> : <Formulario classe="cliente" />
+        }
       </Pagina>
-    </>
+    </div>
   )
 }

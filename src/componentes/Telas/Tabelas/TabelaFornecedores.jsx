@@ -1,6 +1,6 @@
 import { Button, Container, Table } from "react-bootstrap";
 
-export default function TabelaClientes(props) {
+export default function TabelaFornecedores(props) {
     return (
         <>
             <Container>
@@ -9,22 +9,27 @@ export default function TabelaClientes(props) {
                 }}>Adicionar</Button>
                 <Table striped bordered hover>
                     <thead>
-                        <th>Código</th>
-                        <th>Descriçao</th>
+                        <th>Nome</th>
+                        <th>Contato</th>
+                        <th>Endereço</th>
+                        <th>Código de Fornecedor</th>
                     </thead>
                     <tbody>
                         {
-                            props.listaDeClientes?.map((cliente) => {
+                            props.listaDeFornecedores?.map((fornecedor) => {
                                 return (
                                     <tr>
-                                        <td>{cliente.codigo}</td>
-                                        <td>{cliente.descricao}</td>
+                                        <td>{fornecedor.nome}</td>
+                                        <td>{fornecedor.contato}</td>
+                                        <td>{fornecedor.endereco}</td>
+                                        <td>{fornecedor.codFornecedor}</td>
                                     </tr>
                                 )
                             })
                         }
                     </tbody>
                 </Table>
+
             </Container>
         </>
     )
