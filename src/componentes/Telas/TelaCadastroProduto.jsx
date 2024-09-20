@@ -2,11 +2,22 @@ import { useState } from "react";
 import Pagina from "../layouts/Pagina";
 import { Alert } from "react-bootstrap";
 import TabelaProdutos from "./Tabelas/TabelaProdutos";
-import Formulario from "./Formularios/Formulario";
+import FormularioProdutos from "./Formularios/FormularioProdutos";
 import {produtos} from "../../dados/mockProdutos"
 
 export default function TelaCadastroProduto(props) {
   const [exibirTabela, setExibirTabela] = useState(true);
+  const [listaDeProdutos, setListaDeProdutos] = useState(produtos);
+  const [modoEdicao, setModoEdicao] = useState(false);
+  const [produtoSelecionado, setProdutoSelecionado] = useState({
+    codigo: 0,
+    descricao: "",
+    precoCusto: 0,
+    precoVenda: 0,
+    qtdEstoque: 0,
+    urlImagem: "",
+    dataValidade: ""
+  });
   return (
     <div>
       <Pagina>
@@ -16,7 +27,8 @@ export default function TelaCadastroProduto(props) {
           </h2>
         </Alert>
         {
-          exibirTabela ? <TabelaProdutos listaDeProdutos={produtos} setExibirTabela={setExibirTabela}/> : <Formulario classe="produto"/>
+          exibirTabela ? <TabelaProdutos listaDeProdutos={listaDeProdutos} setExibirTabela={setExibirTabela} setListaDeProdutos={setListaDeProdutos} setModoEdicao={setModoEdicao} setProdutoSelecionado={setProdutoSelecionado} /> :
+            <FormularioProdutos listaDeProdutos={listaDeProdutos} setExibirTabela={setExibirTabela} setListaDeProdutos={setListaDeProdutos} setModoEdicao={setModoEdicao} setProdutoSelecionado={setProdutoSelecionado} modoEdicao={modoEdicao} produtoSelecionado={produtoSelecionado}/>
           
         }
       </Pagina>

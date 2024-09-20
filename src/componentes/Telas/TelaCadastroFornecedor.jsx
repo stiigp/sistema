@@ -2,7 +2,7 @@ import { useState } from "react";
 import Pagina from "../layouts/Pagina";
 import { Alert } from "react-bootstrap";
 import TabelaFornecedores from "./Tabelas/TabelaFornecedores";
-import Formulario from "./Formularios/Formulario";
+import FormularioFornecedores from "./Formularios/FormularioFornecedores";
 import { fornecedores } from "../../dados/mockFornecedores"
 
 export default function TelaCadastroFornecedor(props) {
@@ -16,7 +16,7 @@ export default function TelaCadastroFornecedor(props) {
           </h2>
         </Alert>
         {
-          exibirTabela ? <TabelaFornecedores listaDeFornecedores={fornecedores} setExibirTabela={setExibirTabela} /> : <Formulario classe="fornecedor" />
+          exibirTabela ? <TabelaFornecedores listaDeFornecedores={fornecedores} setExibirTabela={setExibirTabela} /> : <FormularioFornecedores setExibirTabela={setExibirTabela} />
 
         }
       </Pagina>

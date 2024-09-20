@@ -2,7 +2,7 @@ import { useState } from "react";
 import Pagina from "../layouts/Pagina";
 import { Alert } from "react-bootstrap";
 import TabelaCategorias from "./Tabelas/TabelaCategorias";
-import Formulario from "./Formularios/Formulario";
+import FormularioCategorias from "./Formularios/FormularioCategorias";
 import { categorias } from "../../dados/mockCategorias"
 
 export default function TelaCadastroCategoria(props) {
@@ -16,7 +16,7 @@ export default function TelaCadastroCategoria(props) {
           </h2>
         </Alert>
         {
-          exibirTabela ? <TabelaCategorias listaDeCategorias={categorias} setExibirTabela={setExibirTabela} /> : <Formulario classe="categoria" />
+          exibirTabela ? <TabelaCategorias listaDeCategorias={categorias} setExibirTabela={setExibirTabela} /> : <FormularioCategorias setExibirTabela={setExibirTabela} />
 
         }
       </Pagina>
