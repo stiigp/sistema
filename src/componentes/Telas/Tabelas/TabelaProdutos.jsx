@@ -12,7 +12,7 @@ export default function TabelaProdutos(props) {
   function deletarProduto(produto) {
     if (window.confirm("Deseja realmente excluir o produto -> " + produto.descricao)) {
       //abordagem utilizando a sintaxe permitida da linguagem
-      props.setListaProdutos(props.listaProdutos.filter((item) => {
+      props.setListaDeProdutos(props.listaDeProdutos.filter((item) => {
         return item.codigo !== produto.codigo
       }));
       window.alert("Produto deletado com sucesso!");
