@@ -49,7 +49,7 @@ export default function FormularioProdutos(props) {
             <Form onSubmit={manipularSubmissao}>
                 <Form.Group className="mb-3">
                     <Form.Label>Código</Form.Label>
-                    <Form.Control disabled={props.modoEdicao} nome="codigo" type="text" placeholder="Insira o código do produto" value={props.produtoSelecionado.codigo} onChange={manipularMudanca} />
+                    <Form.Control id="codigo" name="codigo" type="text" placeholder="Insira o código do produto" value={props.produtoSelecionado.codigo} onChange={manipularMudanca} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -75,6 +75,11 @@ export default function FormularioProdutos(props) {
                 <Form.Group className="mb-3">
                     <Form.Label>Url da Imagem</Form.Label>
                     <Form.Control type="text" name="urlImagem" value={props.produtoSelecionado.urlImagem} onChange={manipularMudanca} placeholder="Insira a url da imagem do produto" />
+                </Form.Group>
+                  
+                <Form.Group className="mb-3">
+                    <Form.Label>Data de validade</Form.Label>
+                    <Form.Control type="date" name="dataValidade" value={props.produtoSelecionado.dataValidade} onChange={manipularMudanca} placeholder="Insira a validade do produto" />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
